@@ -4,28 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homeopathy Clinic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnH2N2m4cCc7mWQ9fK1ZCJzBHZSc4VRe9M3z03qZlWhY3O1J6NChzazGTT4CZWa/bZ3rKMwVg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
+            background: #fdfdfd;
+            color: #333;
+        }
+        .navbar {
+            background-color: #ffffff;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .navbar h1 {
+            font-size: 1.5em;
+            color: #9b0063;
+            margin: 0;
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #9b0063;
+        }
+        .nav-links .book-btn {
+            background-color: #9b0063;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .hero {
+            background: url('https://images.unsplash.com/photo-1600880292089-90a7e086ee33?fit=crop&w=1350&q=80') center/cover no-repeat;
+            padding: 80px 20px;
             text-align: center;
-            background-color: #f4f4f4;
+            color: white;
+        }
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .hero p {
+            font-size: 1.2em;
         }
         .container {
             max-width: 800px;
             margin: auto;
-            padding: 20px;
-            background: white;
+            padding: 30px 20px;
+            background: #ffffff;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
+            margin-top: -40px;
         }
-        h1 {
+        h2 {
+            margin-top: 30px;
             color: #2c3e50;
         }
         .button {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 12px 24px;
             margin-top: 20px;
             text-decoration: none;
             background: #27ae60;
@@ -40,8 +91,8 @@
             margin-top: 20px;
         }
         input, textarea {
-            width: 80%;
-            padding: 10px;
+            width: 100%;
+            padding: 12px;
             margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
@@ -49,7 +100,7 @@
         button {
             background: #27ae60;
             color: white;
-            padding: 10px 15px;
+            padding: 12px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -57,24 +108,60 @@
         button:hover {
             background: #219150;
         }
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="navbar">
+        <h1>Dr. Shalini's Homeopathy Clinic</h1>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Treatments Available</a>
+            <a href="#">Contact</a>
+            <a href="https://wa.me/9492792758" class="book-btn" target="_blank">Book Appointment</a>
+        </div>
+    </div>
+
+    <div class="hero">
         <h1>Welcome to Our Homeopathy Clinic</h1>
-        <p><strong>Dr. N. Shallini</strong></p>
-        <p>Certified Homeopathy Specialist with [X] years of experience</p>
-        <p>Location: Flat - 402, Moola Lalitha Nilayam, Beside Princess Beauty Parlour, Hyderguda, Pin - 500029</p>
-        <p>Working Hours: Mon-Sat, 9 AM - 6 PM</p>
+        <p>Dr. N. Shallini</p>
+        <p>Certified Homeopathy Specialist with over 10 years of experience</p>
+    </div>
+
+    <div class="container">
+        <p><i class="fas fa-map-marker-alt"></i> Flat - 402, Moola Lalitha Nilayam, Beside Princess Beauty Parlour, Hyderguda, Pin - 500029</p>
+        <p><i class="fas fa-clock"></i> Working Hours: Mon-Sat, 9 AM - 6 PM</p>
         <a href="https://wa.me/9492792758" class="button" target="_blank">Book an Appointment</a>
-        
+
         <h2>Contact Us</h2>
-       <form action="https://wa.me/9492792758" method="get">
-            <input type="text" name="name" placeholder="Your Name" required><br>
-            <input type="email" name="email" placeholder="Your Email" required><br>
-            <textarea name="message" placeholder="Your Message" rows="4" required></textarea><br>
+        <form onsubmit="sendToWhatsApp(event)">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" rows="4" required></textarea>
             <button type="submit">Send Message</button>
         </form>
     </div>
+
+    <div class="footer">
+        &copy; 2025 Dr. N. Shallini's Homeopathy Clinic | All Rights Reserved
+    </div>
+
+    <script>
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+            const whatsappMessage = `Hello, my name is ${name} (%0AEmail: ${email}). %0AI would like to say: ${message}`;
+            window.open(`https://wa.me/9492792758?text=${whatsappMessage}`, '_blank');
+        }
+    </script>
 </body>
 </html>
